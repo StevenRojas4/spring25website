@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes - BrandFit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="nav-container">
+            <img src="your-logo.png" alt="BrandFit Logo" class="logo">
+            <div class="brand-name">BrandFit</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Shop</a>
+                        <ul class="dropdown-content">
+                            <li><a href="shoes.html" class="active">Shoes</a></li>
+                            <li><a href="#">Clothing</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Shoes Section -->
+    <div class="container">
+        <h2>Explore Top Shoe Brands</h2>
+        <p>Check out the latest sneakers and athletic shoes from the best brands.</p>
+
+        <!-- Shoe Thumbnails -->
+        <div class="shoe-grid">
+            <div class="shoe-item">
+                <a href="https://www.nike.com" target="_blank">
+                    <img src="nike-shoe.jpg" alt="Nike Shoes">
+                    <div class="shoe-label">Nike</div>
+                </a>
+            </div>
+            <div class="shoe-item">
+                <a href="https://www.adidas.com" target="_blank">
+                    <img src="adidas-shoe.jpg" alt="Adidas Shoes">
+                    <div class="shoe-label">Adidas</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Customer Support</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 BrandFit. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Cursor Effects -->
+    <script>
+        const cursor = document.querySelector(".custom-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        const links = document.querySelectorAll("a");
+
+        links.forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                cursor.classList.add("cursor-grow");
+            });
+            link.addEventListener("mouseleave", () => {
+                cursor.classList.remove("cursor-grow");
+            });
+        });
+    </script>
+
+</body>
+</html>
