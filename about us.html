@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BrandFit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="nav-container">
+            <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo">
+            <div class="brand-name">BrandFit</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Shop</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About</a>
+                        <ul class="dropdown-content">
+                            <li><a href="about.html" class="active">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <div class="container">
+        <h2>Welcome to BrandFit</h2>
+        <p>
+            <strong>BrandFit</strong> is your ultimate hub for streetwear and athletic apparel. We connect fashion lovers with top brands like 
+            <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more. Explore exclusive collections and stay ahead of fashion trends.
+        </p>
+        <p>
+            Find your unique style with BrandFit’s curated collections, from limited-edition sneakers to everyday athleisure.
+        </p>
+
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="snap.png" alt="BrandFit Fashion Showcase">
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Customer Support</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 BrandFit. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Custom Cursor Effects -->
+    <script>
+        const cursor = document.querySelector(".custom-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        const links = document.querySelectorAll("a");
+
+        links.forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                cursor.classList.add("cursor-grow");
+            });
+            link.addEventListener("mouseleave", () => {
+                cursor.classList.remove("cursor-grow");
+            });
+        });
+    </script>
+
+</body>
+</html>
