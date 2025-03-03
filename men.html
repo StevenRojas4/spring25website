@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - BrandFit</title>
+    <title>Men - BrandFit</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,16 +22,16 @@
                     <li class="dropdown">
                         <a href="#">Shop</a>
                         <ul class="dropdown-content">
-                            <li><a href="men.html">Men</a></li>
+                            <li><a href="men.html" class="active">Men</a></li>
                             <li><a href="women.html">Women</a></li>
                             <li><a href="#">Accessories</a></li>
-                            <li><a href="shoes.html">Shoes</a></li> <!-- Link to Shoes page -->
+                            <li><a href="shoes.html">Shoes</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#">About</a>
                         <ul class="dropdown-content">
-                            <li><a href="about us.html" class="active">About Us</a></li>
+                            <li><a href="about us.html">About Us</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
                         </ul>
                     </li>
@@ -40,23 +40,20 @@
         </div>
     </header>
 
-    <!-- About Section -->
+    <!-- Men’s Collection Section -->
     <div class="container">
-        <h2>Welcome to BrandFit</h2>
-        <p>
-            <strong>BrandFit</strong> is your ultimate hub for streetwear and athletic apparel. We connect fashion lovers with top brands like 
-            <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more. Explore exclusive collections and stay ahead of fashion trends.
-        </p>
-        <p>
-            Find your unique style with BrandFit’s curated collections, from limited-edition sneakers to everyday athleisure.
-        </p>
-        <p>
-            -Steven Rojas.
-        </p>
-
-        <!-- Image Section -->
-        <div class="image-container">
-            <img src="snap.png" alt="BrandFit Fashion Showcase">
+        <h2>Men's Collection</h2>
+        <p>Explore the latest men's fashion from top brands.</p>
+        
+        <div class="gallery">
+            <a href="https://www.nike.com" class="item">
+                <img src="nike.jpg" alt="Nike Men's Collection">
+                <p>Nike</p>
+            </a>
+            <a href="https://www.adidas.com" class="item">
+                <img src="adidas.jpg" alt="Adidas Men's Collection">
+                <p>Adidas</p>
+            </a>
         </div>
     </div>
 
@@ -75,14 +72,14 @@
     <!-- JavaScript for Custom Cursor Effects -->
     <script>
         const cursor = document.querySelector(".custom-cursor");
-
+        
         document.addEventListener("mousemove", (e) => {
             cursor.style.left = `${e.clientX}px`;
             cursor.style.top = `${e.clientY}px`;
         });
-
+        
         const links = document.querySelectorAll("a");
-
+        
         links.forEach(link => {
             link.addEventListener("mouseenter", () => {
                 cursor.classList.add("cursor-grow");
@@ -92,6 +89,5 @@
             });
         });
     </script>
-
 </body>
 </html>
