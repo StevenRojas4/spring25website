@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Per Gallon Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Miles Per Gallon Calculator</h1>
+        <label for="miles">Miles Traveled:</label>
+        <input type="number" id="miles" placeholder="Enter miles traveled">
+        
+        <label for="gallons">Gallons Used:</label>
+        <input type="number" id="gallons" placeholder="Enter gallons used">
+        
+        <button onclick="calculateMPG()">Calculate MPG</button>
+        
+        <h2 id="result">Your Miles Per Gallon is: </h2>
+    </div>
+
+    <script>
+        function calculateMPG() {
+            let miles = parseFloat(document.getElementById('miles').value);
+            let gallons = parseFloat(document.getElementById('gallons').value);
+            
+            if (isNaN(miles) || isNaN(gallons) || gallons <= 0) {
+                document.getElementById('result').innerText = "Please enter valid numbers!";
+                return;
+            }
+            
+            let mpg = miles / gallons;
+            document.getElementById('result').innerText = `Your Miles Per Gallon is: ${mpg.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
