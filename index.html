@@ -1,10 +1,122 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; URL='about%20us.html'">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandFit - Home</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>If you are not redirected, <a href="about%20us.html">click here</a>.</p>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="nav-container">
+            <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo">
+            <div class="brand-name">BrandFit</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Shop</a>
+                        <ul class="dropdown-content">
+                            <li><a href="men.html">Men</a></li>
+                            <li><a href="women.html">Women</a></li>
+                            <li><a href="accessories.html">Accessories</a></li>
+                            <li><a href="shoes.html">Shoes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About</a>
+                        <ul class="dropdown-content">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Streetwear Game</h1>
+            <p>Discover the hottest trends from brands like Nike, Adidas, and more.</p>
+            <a href="shop.html" class="btn">Shop Now</a>
+        </div>
+        <img src="hero-image.jpg" alt="Streetwear Fashion" class="hero-image">
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Nike Air Max</h3>
+                <p>$120</p>
+                <a href="product1.html" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Adidas Ultraboost</h3>
+                <p>$140</p>
+                <a href="product2.html" class="btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Puma RS-X</h3>
+                <p>$110</p>
+                <a href="product3.html" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Sign up for exclusive deals and new arrivals.</p>
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Customer Support</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 BrandFit. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Custom Cursor Effects -->
+    <script>
+        const cursor = document.querySelector(".custom-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        const links = document.querySelectorAll("a");
+
+        links.forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                cursor.classList.add("cursor-grow");
+            });
+            link.addEventListener("mouseleave", () => {
+                cursor.classList.remove("cursor-grow");
+            });
+        });
+    </script>
+
 </body>
 </html>
