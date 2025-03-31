@@ -136,47 +136,13 @@ nav {
 
 .image-container {
     margin-top: 30px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
 }
 
-.image-slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.image-slider img {
-    width: 100%;
+.image-container img {
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.slider-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.prev-arrow {
-    left: 10px;
-}
-
-.next-arrow {
-    right: 10px;
 }
 
 /* Shoes Gallery */
@@ -250,6 +216,51 @@ footer {
     font-size: 14px;
     opacity: 0.8;
     font-style: italic;
+}
+
+/* Image Slider Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+.prev {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Media Queries for Responsiveness */
