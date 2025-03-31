@@ -19,6 +19,35 @@
         .active {
             display: block;
         }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .dots-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: gray;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .active-dot {
+            background-color: black;
+        }
     </style>
 </head>
 <body>
@@ -65,8 +94,15 @@
 
     <!-- Slideshow Section -->
     <div class="slideshow-container">
-        <img class="slide active" img src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 1">
-        <img class="slide" img src="619958_v3.jpg" alt="Slide 2">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <img class="slide active" img src="619958_v3.jpg" alt="Slide 1">
+        <img class="slide" img src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 2">
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    <div class="dots-container">
+        <span class="dot active-dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
     <!-- Image Section -->
@@ -106,18 +142,32 @@
             });
         });
 
-        // Slideshow Script
-        let slideIndex = 0;
-        function showSlides() {
-            let slides = document.querySelectorAll(".slide");
-            slides.forEach(slide => slide.classList.remove("active"));
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
-            slides[slideIndex - 1].classList.add("active");
-            setTimeout(showSlides, 3000);
+        // Interactive Slideshow Script
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
         }
-        showSlides();
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let slides = document.querySelectorAll(".slide");
+            let dots = document.querySelectorAll(".dot");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            slides.forEach(slide => slide.style.display = "none");
+            dots.forEach(dot => dot.classList.remove("active-dot"));
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].classList.add("active-dot");
+        }
+
+        setInterval(() => { changeSlide(1); }, 5000);
     </script>
 
 </body>
 </html>
+
