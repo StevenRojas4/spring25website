@@ -22,16 +22,27 @@
         .prev, .next {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
+            padding: 16px;
             color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
             font-size: 18px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 3px;
         }
-        .prev { left: 10px; }
-        .next { right: 10px; }
+        .prev {
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .next {
+            right: 0;
+            transform: translateY(-50%);
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body>
@@ -70,17 +81,19 @@
 
     <!-- Welcome Section -->
     <div class="container welcome-section">
-        <h1>BrandFit</h1>
-        <p>Fit Your Brand, Elevate Your Look.</p>
+        <h1>Welcome to BrandFit</h1>
+        <p>Discover the latest in streetwear and athletic apparel from top brands like <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more.</p>
+        <p>Join our fashion-forward community and elevate your style.</p>
         <a href="shop.html" class="cta-button">Start Shopping</a>
     </div>
 
     <!-- Slideshow Section -->
     <div class="slideshow-container">
-        <img class="slide active" src="619958_v3.jpg" alt="Slide 1">
-        <img class="slide" src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 2">
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        <img class="slide" src="slide1.jpg" alt="Slide 1">
+        <img class="slide" src="slide2.jpg" alt="Slide 2">
+        <img class="slide" src="slide3.jpg" alt="Slide 3">
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
     </div>
 
     <!-- Image Section -->
@@ -120,28 +133,23 @@
             });
         });
 
-        // Interactive Slideshow Script
+        // Slideshow Script
         let slideIndex = 0;
-        const slides = document.querySelectorAll(".slide");
-
         function showSlides() {
+            let slides = document.querySelectorAll(".slide");
             slides.forEach(slide => slide.classList.remove("active"));
-            slides[slideIndex].classList.add("active");
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].classList.add("active");
         }
-
-        function changeSlide(n) {
+        function plusSlides(n) {
             slideIndex += n;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
             showSlides();
         }
-
-        function autoSlide() {
-            changeSlide(1);
-            setTimeout(autoSlide, 3000);
-        }
-
-        autoSlide();
+        showSlides();
+        setInterval(showSlides, 3000);
     </script>
 
 </body>
