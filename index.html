@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - BrandFit</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -48,6 +63,13 @@
         <a href="shop.html" class="cta-button">Start Shopping</a>
     </div>
 
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <img class="slide active" src="slide1.jpg" alt="Slide 1">
+        <img class="slide" src="slide2.jpg" alt="Slide 2">
+        <img class="slide" src="slide3.jpg" alt="Slide 3">
+    </div>
+
     <!-- Image Section -->
     <div class="image-container">
         <img src="welcome-banner.png" alt="BrandFit Fashion Showcase">
@@ -65,7 +87,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Custom Cursor Effects -->
+    <!-- JavaScript for Slideshow and Custom Cursor Effects -->
     <script>
         const cursor = document.querySelector(".custom-cursor");
 
@@ -84,6 +106,18 @@
                 cursor.classList.remove("cursor-grow");
             });
         });
+
+        // Slideshow Script
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.querySelectorAll(".slide");
+            slides.forEach(slide => slide.classList.remove("active"));
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].classList.add("active");
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
     </script>
 
 </body>
