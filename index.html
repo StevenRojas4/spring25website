@@ -6,56 +6,57 @@
     <title>Welcome - BrandFit</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        * {box-sizing: border-box}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+
         .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
+          max-width: 1000px;
+          position: relative;
+          margin: auto;
         }
-        .slide {
-            display: none;
-            width: 100%;
-        }
-        .active {
-            display: block;
-        }
+
         .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
         }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-        .dots-container {
-            text-align: center;
-            margin-top: 10px;
+
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
         }
+
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+
         .dot {
-            height: 12px;
-            width: 12px;
-            margin: 0 5px;
-            background-color: gray;
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
         }
-        .active-dot {
-            background-color: black;
+
+        .active, .dot:hover {
+          background-color: #717171;
         }
     </style>
 </head>
 <body>
-
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
-
-    <!-- Header with Logo and Navigation -->
     <header>
         <div class="nav-container">
             <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo">
@@ -63,111 +64,61 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#">Shop</a>
-                        <ul class="dropdown-content">
-                            <li><a href="men.html">Men</a></li>
-                            <li><a href="women.html">Women</a></li>
-                            <li><a href="accessories.html">Accessories</a></li>
-                            <li><a href="shoes.html">Shoes</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">About</a>
-                        <ul class="dropdown-content">
-                            <li><a href="about us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Welcome Section -->
-    <div class="container welcome-section">
-        <h1>Welcome to BrandFit</h1>
-        <p>Discover the latest in streetwear and athletic apparel from top brands like <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more.</p>
-        <p>Join our fashion-forward community and elevate your style.</p>
-        <a href="shop.html" class="cta-button">Start Shopping</a>
-    </div>
-
-    <!-- Slideshow Section -->
     <div class="slideshow-container">
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <img class="slide active" img src="619958_v3.jpg" alt="Slide 1">
-        <img class="slide" img src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 2">
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-    </div>
-    <div class="dots-container">
-        <span class="dot active-dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-
-    <!-- Image Section -->
-    <div class="image-container">
-        <img src="welcome-banner.png" alt="BrandFit Fashion Showcase">
-    </div>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Customer Support</a>
+        <div class="mySlides fade">
+            <img src="SS25_Adidas_Orginals_ON.jpg" style="width:100%">
         </div>
-        <div class="copyright">
-            &copy; 2025 BrandFit. All rights reserved.
-        </div>
-    </footer>
 
-    <!-- JavaScript for Slideshow and Custom Cursor Effects -->
+        <div class="mySlides fade">
+            <img src="619958_v3.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
     <script>
-        const cursor = document.querySelector(".custom-cursor");
-
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-        });
-
-        const links = document.querySelectorAll("a");
-
-        links.forEach(link => {
-            link.addEventListener("mouseenter", () => {
-                cursor.classList.add("cursor-grow");
-            });
-            link.addEventListener("mouseleave", () => {
-                cursor.classList.remove("cursor-grow");
-            });
-        });
-
-        // Interactive Slideshow Script
         let slideIndex = 1;
         showSlides(slideIndex);
 
-        function changeSlide(n) {
-            showSlides(slideIndex += n);
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
         }
 
         function currentSlide(n) {
-            showSlides(slideIndex = n);
+          showSlides(slideIndex = n);
         }
 
         function showSlides(n) {
-            let slides = document.querySelectorAll(".slide");
-            let dots = document.querySelectorAll(".dot");
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-            slides.forEach(slide => slide.style.display = "none");
-            dots.forEach(dot => dot.classList.remove("active-dot"));
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].classList.add("active-dot");
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
         }
-
-        setInterval(() => { changeSlide(1); }, 5000);
     </script>
-
 </body>
 </html>
-
