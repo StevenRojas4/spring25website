@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template - BrandFit</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .active {
+            display: block;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="nav-container">
+            <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo">
+            <div class="brand-name">BrandFit</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Shop</a>
+                        <ul class="dropdown-content">
+                            <li><a href="men.html">Men</a></li>
+                            <li><a href="women.html">Women</a></li>
+                            <li><a href="accessories.html">Accessories</a></li>
+                            <li><a href="shoes.html">Shoes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About</a>
+                        <ul class="dropdown-content">
+                            <li><a href="about us.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Placeholder -->
+    <main class="container">
+        <!-- Add your content here -->
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Customer Support</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 BrandFit. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Custom Cursor and Slideshow Logic -->
+    <script>
+        const cursor = document.querySelector(".custom-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        const links = document.querySelectorAll("a");
+
+        links.forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                cursor.classList.add("cursor-grow");
+            });
+            link.addEventListener("mouseleave", () => {
+                cursor.classList.remove("cursor-grow");
+            });
+        });
+
+        // Slideshow functionality is preserved, but no slides included by default
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlides() {
+            slides.forEach(slide => slide.classList.remove("active"));
+            if (slides.length > 0) {
+                slides[slideIndex].classList.add("active");
+            }
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            showSlides();
+        }
+
+        function autoSlide() {
+            changeSlide(1);
+            setTimeout(autoSlide, 3000);
+        }
+
+        if (slides.length > 0) autoSlide();
+    </script>
+
+</body>
+</html>
+

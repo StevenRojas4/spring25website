@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Calculator - BrandFit</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .calculator-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .calculator-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .calculator-row input {
+      width: 70px;
+    }
+    .calculator-header {
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .total-container {
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+  <!-- Header with Nav -->
+  <header>
+    <div class="nav-container">
+      <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
+      <div class="brand-name">BrandFit</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Shop</a>
+            <ul class="dropdown-content">
+              <li><a href="men.html">Men</a></li>
+              <li><a href="women.html">Women</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">About</a>
+            <ul class="dropdown-content">
+              <li><a href="about us.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a href="calculator.html" class="active">Plan Your Outfit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Calculator Content -->
+  <main>
+    <div class="calculator-container">
+      <h2>🧮 Outfit Cost Estimator</h2>
+
+      <div class="calculator-header">
+        <div>Item</div>
+        <div>Quantity</div>
+        <div>Price ($)</div>
+      </div>
+
+      <div class="calculator-row">
+        <div>1. Hoodie</div>
+        <input type="number" value="0" id="qty_hoodie" class="qty" />
+        <input type="number" readonly id="price_hoodie" value="0" />
+      </div>
+
+      <div class="calculator-row">
+        <div>2. Sneakers</div>
+        <input type="number" value="0" id="qty_sneakers" class="qty" />
+        <input type="number" readonly id="price_sneakers" value="0" />
+      </div>
+
+      <div class="calculator-row">
+        <div>3. Accessories</div>
+        <input type="number" value="0" id="qty_accessories" class="qty" />
+        <input type="number" readonly id="price_accessories" value="0" />
+      </div>
+
+      <div class="calculator-row">
+        <div>4. Athletic Shorts</div>
+        <input type="number" value="0" id="qty_shorts" class="qty" />
+        <input type="number" readonly id="price_shorts" value="0" />
+      </div>
+
+      <div class="total-container">
+        Total: $<span id="total_value">0</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Customer Support</a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 BrandFit. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript: Cursor + Calculator Logic -->
+  <script>
+    const cursor = document.querySelector(".custom-cursor");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => cursor.classList.add("cursor-grow"));
+      link.addEventListener("mouseleave", () => cursor.classList.remove("cursor-grow"));
+    });
+
+    const prices = {
+      hoodie: 50,
+      sneakers: 80,
+      accessories: 15,
+      shorts: 30
+    };
+
+    const calculate = () => {
+      let total = 0;
+
+      for (const item in prices) {
+        const qty = parseInt(document.getElementById(`qty_${item}`).value) || 0;
+        const itemPrice = prices[item] * qty;
+        document.getElementById(`price_${item}`).value = itemPrice;
+        total += itemPrice;
+      }
+
+      document.getElementById("total_value").textContent = total;
+    };
+
+    document.querySelectorAll(".qty").forEach(input => {
+      input.addEventListener("input", calculate);
+    });
+
+    calculate(); // Initialize
+  </script>
+
+</body>
+</html>
