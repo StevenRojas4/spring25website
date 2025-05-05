@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social News Program</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+  <!-- Header with Logo and Navigation -->
+  <header>
+    <div class="nav-container">
+      <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
+      <div class="brand-name">BrandFit</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Shop</a>
+            <ul class="dropdown-content">
+              <li><a href="men.html">Men</a></li>
+              <li><a href="women.html">Women</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">About</a>
+            <ul class="dropdown-content">
+              <li><a href="about us.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
+          <li><a href="brandmascot.html">Brand Mascot</a></li>
+          <li><a href="socialnews.html" class="active">Community</a></li> 
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2>Social News Program</h2>
+    <p>Share your favorite links with others!</p>
+
+    <form id="linkForm">
+      <input type="text" id="title" placeholder="Link Title" required />
+      <input type="text" id="url" placeholder="Link URL" required />
+      <input type="text" id="author" placeholder="Author Name" required />
+      <button type="submit">Add Link</button>
+    </form>
+
+    <ul id="linkList" class="shoes-gallery">
+      <!-- Shared links will appear here -->
+    </ul>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Customer Support</a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 BrandFit. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript for Cursor and Social News Logic -->
+  <script>
+    const cursor = document.querySelector(".custom-cursor");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = \`\${e.clientX}px\`;
+      cursor.style.top = \`\${e.clientY}px\`;
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-grow");
+      });
+      link.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-grow");
+      });
+    });
+
+    // Social News Program Logic
+    const form = document.getElementById("linkForm");
+    const linkList = document.getElementById("linkList");
+    let links = [];
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value.trim();
+      let url = document.getElementById("url").value.trim();
+      const author = document.getElementById("author").value.trim();
+
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = "http://" + url;
+      }
+
+      const link = { title, url, author };
+      links.push(link);
+      updateLinkList();
+      form.reset();
+    });
+
+    function updateLinkList() {
+      linkList.innerHTML = "";
+      if (links.length === 0) {
+        linkList.innerHTML = "<li>No links submitted yet.</li>";
+        return;
+      }
+
+      links.forEach((link, index) => {
+        const li = document.createElement("li");
+        li.className = "shoe-item";
+        li.innerHTML = \`
+          <p><strong>\${index + 1}. <a href="\${link.url}" target="_blank">\${link.title}</a></strong> (by \${link.author})</p>
+          <button onclick="removeLink(\${index})">Remove</button>
+        \`;
+        linkList.appendChild(li);
+      });
+    }
+
+    function removeLink(index) {
+      links.splice(index, 1);
+      updateLinkList();
+    }
+
+    // Initial empty message
+    updateLinkList();
+  </script>
+</body>
+</html>
