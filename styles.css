@@ -336,3 +336,11 @@ footer {
         gap: 8px;
     }
 }
+
+slide img {
+  width: 100%;
+  height: 600px; /* Increased from 450px to 600px */
+  object-fit: contain; /* Show full image without cropping */
+  background-color: #f8f8f8; /* Optional: background fill for padding space */
+  border-radius: 12px;
+}
