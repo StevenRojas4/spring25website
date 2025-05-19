@@ -1,83 +1,289 @@
-<!-- Save as: about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - BrandFit</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - BrandFit</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Basic RISEN framework enhancements */
+
+    :root {
+      --primary-color: #111;
+      --accent-color: #f26a4b;
+      --bg-color: #fff;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+      transition: background-color var(--transition-speed) ease;
+    }
+
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 40px;
+      transition: transform var(--transition-speed);
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-left: 0.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-color);
+      padding: 0.5rem 1rem;
+      transition: color var(--transition-speed);
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent-color);
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all var(--transition-speed) ease;
+      z-index: 999;
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-content li {
+      white-space: nowrap;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform var(--transition-speed);
+    }
+
+    .image-container img:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      background: #f4f4f4;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: color var(--transition-speed);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--accent-color);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease;
+      z-index: 10000;
+    }
+
+    .cursor-grow {
+      transform: translate(-50%, -50%) scale(1.8);
+      background-color: var(--accent-color);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 1rem 0;
+      }
+
+      .dropdown-content {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        display: none;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="custom-cursor"></div>
+  <div class="custom-cursor"></div>
 
-    <header>
-        <div class="nav-container">
-            <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo">
-            <div class="brand-name">BrandFit</div>
-<nav>
-    <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
+  <header>
+    <div class="nav-container">
+      <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
+      <div class="brand-name">BrandFit</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
             <a href="#">Shop</a>
             <ul class="dropdown-content">
-                <li><a href="men.html">Men</a></li>
-                <li><a href="women.html">Women</a></li>
-                <li><a href="accessories.html">Accessories</a></li>
-                <li><a href="shoes.html">Shoes</a></li>
+              <li><a href="men.html">Men</a></li>
+              <li><a href="women.html">Women</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
             </ul>
-        </li>
-        <li class="dropdown">
+          </li>
+          <li class="dropdown">
             <a href="#">About</a>
             <ul class="dropdown-content">
-                <li><a href="about us.html" class="active">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="about us.html" class="active">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
             </ul>
-        </li>
-        <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
-        <li><a href="brandmascot.html">Brand Mascot</a></li>
-        <li><a href="socialnews.html">Community</a></li> 
-    </ul>
-</nav>
-        </div>
-    </header>
-
-    <div class="container">
-        <h2>Welcome to BrandFit</h2>
-        <p>
-            <strong>BrandFit</strong> Brandfit is your ultimate hub for streetwear and athletic apparel, bringing together the latest and most iconic styles from world-renowned brands like Nike, Adidas, Puma, Reebok, and more. Whether you're hitting the gym, heading out with friends, or just want to elevate your everyday look, Brandfit has something for every vibe and every fit. We curate collections that blend performance with personality—featuring everything from limited edition drops and exclusive collabs to timeless staples and seasonal essentials.
-
-With a sleek, easy-to-navigate interface and a constantly updated inventory, shopping on Brandfit feels effortless and exciting. Our mission is to empower you to express your style through authentic, high-quality gear that speaks to your identity and keeps up with your lifestyle. From sneakers and hoodies to joggers, windbreakers, and accessories, every piece is handpicked to reflect the pulse of modern culture and fashion.
-
-Join a community that lives at the intersection of fitness and fashion—where confidence is worn and individuality is celebrated. Brandfit isn’t just a store. It’s a movement. It’s a mindset. And it’s here to keep you fitted for life.
-        </p>
-        <div class="image-container">
-            <img src="snap.png" alt="BrandFit Fashion Showcase">
-        </div>
+          </li>
+          <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
+          <li><a href="brandmascot.html">Brand Mascot</a></li>
+          <li><a href="socialnews.html">Community</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Customer Support</a>
-        </div>
-        <div class="copyright">
-            &copy; 2025 BrandFit. All rights reserved.
-        </div>
-    </footer>
+  <main class="container">
+    <h2>Welcome to BrandFit</h2>
+    <p><strong>BrandFit</strong> is your ultimate hub for streetwear and athletic apparel, bringing together the latest and most iconic styles from world-renowned brands like Nike, Adidas, Puma, Reebok, and more. Whether you're hitting the gym, heading out with friends, or just want to elevate your everyday look, BrandFit has something for every vibe and every fit...</p>
+    <div class="image-container">
+      <img src="snap.png" alt="BrandFit Fashion Showcase" />
+    </div>
+  </main>
 
-    <script>
-        const cursor = document.querySelector(".custom-cursor");
-        document.addEventListener("mousemove", e => {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-        });
-        document.querySelectorAll("a").forEach(link => {
-            link.addEventListener("mouseenter", () => cursor.classList.add("cursor-grow"));
-            link.addEventListener("mouseleave", () => cursor.classList.remove("cursor-grow"));
-        });
-    </script>
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Customer Support</a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 BrandFit. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const cursor = document.querySelector(".custom-cursor");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    document.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("mouseenter", () => cursor.classList.add("cursor-grow"));
+      link.addEventListener("mouseleave", () => cursor.classList.remove("cursor-grow"));
+    });
+  </script>
 
 </body>
 </html>
