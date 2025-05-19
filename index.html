@@ -2,139 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome - BrandFit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrandFit - Level Up Your Style</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: #fff;
+      color: #333;
       line-height: 1.6;
     }
 
     header {
-      background: #111;
+      background: #000;
       color: white;
-      padding: 10px 20px;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 20px;
+      text-align: center;
     }
 
     .logo {
       width: 120px;
+      margin-bottom: 10px;
     }
 
-    .brand-name {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-left: 10px;
+    .hero {
+      background: url('welcome-banner.png') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
     }
 
-    nav {
-      flex-basis: 100%;
-      margin-top: 10px;
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
 
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
     }
 
-    .nav-menu li {
-      position: relative;
-    }
-
-    .nav-menu a {
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #111;
       color: white;
       text-decoration: none;
-      padding: 8px 12px;
-      display: block;
+      border-radius: 5px;
+      font-size: 1rem;
     }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #333;
-      min-width: 150px;
-      z-index: 1;
-    }
-
-    .dropdown-content a {
-      padding: 10px;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .container.welcome-section {
+    .value-section {
       padding: 40px 20px;
       text-align: center;
       background: #f5f5f5;
     }
 
-    .cta-button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 24px;
-      background-color: #111;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    .value-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
-    .slideshow-container {
-      position: relative;
+    .value-section p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .showcase {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .showcase img {
+      width: 300px;
       max-width: 100%;
-      margin: 20px auto;
-      overflow: hidden;
-    }
-
-    .slide {
-      display: none;
-      width: 100%;
-    }
-
-    .active {
-      display: block;
-    }
-
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    .image-container {
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .image-container img {
-      max-width: 100%;
-      height: auto;
+      border-radius: 10px;
     }
 
     footer {
@@ -142,11 +94,6 @@
       color: white;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
-    }
-
-    .footer-links {
-      margin-bottom: 10px;
     }
 
     .footer-links a {
@@ -155,141 +102,59 @@
       text-decoration: none;
     }
 
-    /* Responsive Styles */
     @media (max-width: 768px) {
-      .nav-menu {
-        flex-direction: column;
-        gap: 5px;
+      .hero h1 {
+        font-size: 2rem;
       }
 
-      .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .brand-name {
-        margin-top: 10px;
+      .value-section h2 {
+        font-size: 1.5rem;
       }
 
       .cta-button {
         width: 100%;
-        box-sizing: border-box;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="custom-cursor"></div>
-
-  <!-- Header with Logo and Navigation -->
+  <!-- Header -->
   <header>
-    <div class="nav-container">
-      <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
-      <div class="brand-name">BrandFit</div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li class="dropdown">
-            <a href="#">Shop</a>
-            <ul class="dropdown-content">
-              <li><a href="men.html">Men</a></li>
-              <li><a href="women.html">Women</a></li>
-              <li><a href="accessories.html">Accessories</a></li>
-              <li><a href="shoes.html">Shoes</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">About</a>
-            <ul class="dropdown-content">
-              <li><a href="about us.html">About Us</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-          </li>
-          <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
-          <li><a href="brandmascot.html">Brand Mascot</a></li>
-          <li><a href="socialnews.html">Community</a></li> 
-        </ul>
-      </nav>
-    </div>
+    <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
+    <h1>BrandFit</h1>
   </header>
 
-  <!-- Welcome Section -->
-  <div class="container welcome-section">
-    <h1>Welcome to BrandFit</h1>
-    <p>Discover the latest in streetwear and athletic apparel from top brands like <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more.</p>
-    <p>Join our fashion-forward community and elevate your style.</p>
-    <a href="shop.html" class="cta-button">Start Shopping</a>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Level Up Your Style</h1>
+    <p>Streetwear. Athletic. Elevated. Join the movement.</p>
+    <a href="shop.html" class="cta-button">Shop Now</a>
+  </section>
 
-  <!-- Slideshow Section -->
-  <div class="slideshow-container">
-    <img class="slide active" src="619958_v3.jpg" alt="Slide 1" />
-    <img class="slide" src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 2" />
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
-  </div>
+  <!-- Value Proposition -->
+  <section class="value-section">
+    <h2>What Makes BrandFit Different?</h2>
+    <p>BrandFit is your one-stop hub for premium athletic and lifestyle fashion. We bring together top-tier brands like Nike, Adidas, Puma, and Tommy Hilfiger—curated for bold expression and confident movement. Be seen. Be fit. Be you.</p>
+  </section>
 
-  <!-- Image Section -->
-  <div class="image-container">
-    <img src="welcome-banner.png" alt="BrandFit Fashion Showcase" />
-  </div>
+  <!-- Visual Showcase -->
+  <section class="showcase">
+    <img src="619958_v3.jpg" alt="Urban streetwear" />
+    <img src="SS25_Adidas_Orginals_ON.jpg" alt="Adidas Originals" />
+    <img src="brand_fitbot.jpg" alt="Brand Mascot Fitbot" />
+  </section>
 
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer>
     <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Customer Support</a>
+      <a href="#">Privacy</a> |
+      <a href="#">Terms</a> |
+      <a href="#">Support</a>
     </div>
-    <div class="copyright">
-      &copy; 2025 BrandFit. All rights reserved.
-    </div>
+    <p>&copy; 2025 BrandFit. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript for Slideshow and Cursor -->
-  <script>
-    const cursor = document.querySelector(".custom-cursor");
-
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-    });
-
-    const links = document.querySelectorAll("a");
-
-    links.forEach(link => {
-      link.addEventListener("mouseenter", () => {
-        cursor.classList.add("cursor-grow");
-      });
-      link.addEventListener("mouseleave", () => {
-        cursor.classList.remove("cursor-grow");
-      });
-    });
-
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function showSlides() {
-      slides.forEach(slide => slide.classList.remove("active"));
-      slides[slideIndex].classList.add("active");
-    }
-
-    function changeSlide(n) {
-      slideIndex += n;
-      if (slideIndex >= slides.length) slideIndex = 0;
-      if (slideIndex < 0) slideIndex = slides.length - 1;
-      showSlides();
-    }
-
-    function autoSlide() {
-      changeSlide(1);
-      setTimeout(autoSlide, 3000);
-    }
-
-    autoSlide();
-  </script>
 </body>
 </html>
 
