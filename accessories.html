@@ -2,208 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Accessories - BrandFit</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* RISEN Enhancements */
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    header {
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      width: 50px;
-      height: auto;
+    /* Image Styling for Uniform Sizing */
+    .gallery .item img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
       transition: transform 0.3s ease;
     }
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
-
-    .brand-name {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #222;
-      margin-left: 0.5rem;
-    }
-
-    nav ul.nav-menu {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 0;
-      margin: 1rem 0 0 0;
-    }
-
-    nav ul.nav-menu li {
-      position: relative;
-    }
-
-    nav ul.nav-menu a {
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      display: inline-block;
-      color: #333;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    nav ul.nav-menu a:hover,
-    nav ul.nav-menu a.active {
-      background-color: #ddd;
-      border-radius: 6px;
-      transform: translateY(-2px);
-    }
-
-    .dropdown-content {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: none;
-      flex-direction: column;
-      z-index: 999;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #111;
+    .gallery .item img:hover {
+      transform: scale(1.05);
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
     }
 
     .gallery .item {
       text-align: center;
-      background: #fff;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery .item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery p {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    footer {
-      background-color: #222;
-      color: #eee;
-      text-align: center;
-      padding: 1rem 2rem;
-      margin-top: 4rem;
-    }
-
-    .footer-links {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-links a {
-      color: #eee;
-      margin: 0 1rem;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-      color: #ff9800;
-    }
-
-    /* Custom Cursor */
-    .custom-cursor {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #000;
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.2s ease;
-      mix-blend-mode: difference;
-    }
-
-    .cursor-grow {
-      transform: scale(2.5);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .nav-menu {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .brand-name {
-        font-size: 1.2rem;
-      }
+      color: inherit;
     }
   </style>
 </head>
 <body>
+
+  <!-- Custom Cursor -->
   <div class="custom-cursor"></div>
 
+  <!-- Header with Logo and Navigation -->
   <header>
     <div class="nav-container">
       <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
@@ -235,22 +71,24 @@
     </div>
   </header>
 
-  <div class="container">
+  <!-- Accessories Collection Section -->
+  <main class="container">
     <h2>Accessories Collection</h2>
     <p>Discover the latest accessories from top brands.</p>
 
     <div class="gallery">
-      <a href="https://www.nike.com/w/accessories-equipment-awwpw" class="item" target="_blank">
+      <a href="https://www.nike.com/w/accessories-equipment-awwpw" class="item">
         <img src="U+NK+DFADV+RISE+CAP+S+AB+SF+P.png" alt="Nike Accessories" />
         <p>Nike</p>
       </a>
-      <a href="https://www.adidas.com/us/accessories" class="item" target="_blank">
+      <a href="https://www.adidas.com/us/accessories" class="item">
         <img src="17830651_1200_A.jpg" alt="Adidas Accessories" />
         <p>Adidas</p>
       </a>
     </div>
-  </div>
+  </main>
 
+  <!-- Footer Section -->
   <footer>
     <div class="footer-links">
       <a href="#">Privacy Policy</a>
@@ -262,17 +100,24 @@
     </div>
   </footer>
 
+  <!-- JavaScript for Custom Cursor Effects -->
   <script>
     const cursor = document.querySelector(".custom-cursor");
 
-    document.addEventListener("mousemove", e => {
+    document.addEventListener("mousemove", (e) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
     });
 
-    document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("mouseenter", () => cursor.classList.add("cursor-grow"));
-      link.addEventListener("mouseleave", () => cursor.classList.remove("cursor-grow"));
+    const links = document.querySelectorAll("a");
+
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-grow");
+      });
+      link.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-grow");
+      });
     });
   </script>
 </body>
