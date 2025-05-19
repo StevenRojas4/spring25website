@@ -1,197 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - BrandFit</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* AI-generated CSS for responsiveness */
-        @media screen and (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                background-color: #333;
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-                cursor: pointer;
-                font-size: 28px;
-                color: white;
-                padding: 10px;
-            }
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome - BrandFit</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* General Styles (include if not in styles.css) */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        .hamburger {
-            display: none;
-        }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #111;
+      color: white;
+    }
 
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-        }
-        .slide {
-            display: none;
-            width: 100%;
-        }
-        .active {
-            display: block;
-        }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .prev { left: 10px; }
-        .next { right: 10px; }
+    .logo {
+      height: 40px;
+    }
 
-        /* AI-generated hover animation */
-        .cta-button:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-    </style>
+    .brand-name {
+      font-size: 24px;
+      margin-left: 10px;
+      color: white;
+    }
+
+    nav {
+      position: relative;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu li a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 12px;
+      display: block;
+    }
+
+    .nav-menu li a.active {
+      font-weight: bold;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content li a {
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    .nav-menu.mobile {
+      display: none;
+      flex-direction: column;
+      background-color: #222;
+    }
+
+    .nav-menu.mobile.show {
+      display: flex;
+    }
+
+    /* Slideshow Styles */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Media Queries */
+    @media screen and (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav.active .nav-menu {
+        display: flex;
+      }
+
+      .nav-menu li {
+        text-align: center;
+      }
+
+      .dropdown:hover .dropdown-content {
+        position: static;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="custom-cursor"></div>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
 
-    <header>
-        <div class="nav-container">
-            <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo">
-            <div class="brand-name">BrandFit</div>
-            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#">Shop</a>
-                        <ul class="dropdown-content">
-                            <li><a href="men.html">Men</a></li>
-                            <li><a href="women.html">Women</a></li>
-                            <li><a href="accessories.html">Accessories</a></li>
-                            <li><a href="shoes.html">Shoes</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">About</a>
-                        <ul class="dropdown-content">
-                            <li><a href="about us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
-                    <li><a href="brandmascot.html">Brand Mascot</a></li>
-                    <li><a href="socialnews.html">Community</a></li> 
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
+      <div class="brand-name">BrandFit</div>
 
-    <div class="container welcome-section">
-        <h1>Welcome to BrandFit</h1>
-        <p>Discover the latest in streetwear and athletic apparel from top brands like <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more.</p>
-        <p>Join our fashion-forward community and elevate your style.</p>
-        <a href="shop.html" class="cta-button">Start Shopping</a>
-    </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-    <div class="slideshow-container">
-        <img class="slide active" src="619958_v3.jpg" alt="Slide 1">
-        <img class="slide" src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 2">
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-    </div>
-
-    <div class="image-container">
-        <img src="welcome-banner.png" alt="BrandFit Fashion Showcase">
-    </div>
-
-    <!-- HTML generated by ChatGPT -->
-    <section class="about-section">
-        <h2>About BrandFit</h2>
-        <p>BrandFit is your go-to hub for curated streetwear and athletic apparel that suits every lifestyle. We bring you the best collections from global brands and make fashion accessible, fun, and empowering.</p>
-    </section>
-
-    <!-- HTML generated by ChatGPT -->
-    <section class="services-section">
-        <h2>What We Offer</h2>
-        <ul>
-            <li>Exclusive collections from Nike, Adidas, and more</li>
-            <li>AI-powered outfit planner</li>
-            <li>Community-driven style insights</li>
-            <li>Free shipping on orders over $50</li>
+      <nav id="nav">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Shop</a>
+            <ul class="dropdown-content">
+              <li><a href="men.html">Men</a></li>
+              <li><a href="women.html">Women</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">About</a>
+            <ul class="dropdown-content">
+              <li><a href="about us.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
+          <li><a href="brandmascot.html">Brand Mascot</a></li>
+          <li><a href="socialnews.html">Community</a></li>
         </ul>
-    </section>
+      </nav>
+    </div>
+  </header>
 
-    <!-- HTML generated by ChatGPT -->
-    <section class="contact-section">
-        <h2>Contact Us</h2>
-        <p>Email: support@brandfit.com</p>
-        <p>Follow us on Instagram and TikTok for the latest drops!</p>
-    </section>
+  <!-- Welcome Section -->
+  <div class="container welcome-section">
+    <h1>Welcome to BrandFit</h1>
+    <p>Discover the latest in streetwear and athletic apparel from top brands like <strong>Nike, Adidas, Tommy Hilfiger, Puma</strong>, and more.</p>
+    <p>Join our fashion-forward community and elevate your style.</p>
+    <a href="shop.html" class="cta-button">Start Shopping</a>
+  </div>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Customer Support</a>
-        </div>
-        <div class="copyright">
-            &copy; 2025 BrandFit. All rights reserved.
-        </div>
-    </footer>
+  <!-- Slideshow Section -->
+  <div class="slideshow-container">
+    <img class="slide active" src="619958_v3.jpg" alt="Slide 1" />
+    <img class="slide" src="SS25_Adidas_Orginals_ON.jpg" alt="Slide 2" />
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
 
-    <script>
-        const cursor = document.querySelector(".custom-cursor");
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-        });
+  <!-- Image Section -->
+  <div class="image-container">
+    <img src="welcome-banner.png" alt="BrandFit Fashion Showcase" />
+  </div>
 
-        const links = document.querySelectorAll("a");
-        links.forEach(link => {
-            link.addEventListener("mouseenter", () => cursor.classList.add("cursor-grow"));
-            link.addEventListener("mouseleave", () => cursor.classList.remove("cursor-grow"));
-        });
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Customer Support</a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 BrandFit. All rights reserved.
+    </div>
+  </footer>
 
-        let slideIndex = 0;
-        const slides = document.querySelectorAll(".slide");
-        function showSlides() {
-            slides.forEach(slide => slide.classList.remove("active"));
-            slides[slideIndex].classList.add("active");
-        }
-        function changeSlide(n) {
-            slideIndex += n;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            showSlides();
-        }
-        function autoSlide() {
-            changeSlide(1);
-            setTimeout(autoSlide, 3000);
-        }
-        autoSlide();
+  <!-- JavaScript -->
+  <script>
+    // Cursor
+    const cursor = document.querySelector(".custom-cursor");
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
 
-        function toggleMenu() {
-            document.querySelector(".nav-menu").classList.toggle("active");
-        }
-    </script>
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => cursor.classList.add("cursor-grow"));
+      link.addEventListener("mouseleave", () => cursor.classList.remove("cursor-grow"));
+    });
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+    }
+
+    function changeSlide(n) {
+      slideIndex += n;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      showSlides();
+    }
+
+    function autoSlide() {
+      changeSlide(1);
+      setTimeout(autoSlide, 3000);
+    }
+
+    autoSlide();
+
+    // Hamburger Menu
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("mobile");
+      navMenu.classList.toggle("show");
+    });
+  </script>
 
 </body>
 </html>
-
