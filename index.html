@@ -2,159 +2,235 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BrandFit - Level Up Your Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrandFit - Elevate Your Style</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Keep your existing CSS here for core styles */
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #fff;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #000;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .logo {
-      width: 120px;
-      margin-bottom: 10px;
-    }
-
+    /* Additional landing page styles */
     .hero {
-      background: url('welcome-banner.png') center/cover no-repeat;
+      background: linear-gradient(135deg, #d32f2f, #b71c1c);
       color: white;
+      padding: 100px 20px 60px;
       text-align: center;
-      padding: 100px 20px;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 20px;
+      box-shadow: 0 12px 28px rgba(183, 28, 28, 0.5);
+      margin-bottom: 50px;
     }
 
     .hero h1 {
       font-size: 3rem;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
     .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .cta-button {
+      background-color: #ffeb3b;
+      color: #b71c1c;
+      font-weight: 700;
       font-size: 1.2rem;
+      padding: 15px 40px;
+      border-radius: 50px;
+      box-shadow: 0 6px 15px rgba(255, 235, 59, 0.6);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero .cta-button:hover {
+      background-color: #fbc02d;
+      color: #7f0000;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      gap: 40px;
+      max-width: 960px;
+      margin: 0 auto 70px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .feature-item {
+      flex: 1 1 250px;
+      background: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-item img {
+      max-width: 80px;
       margin-bottom: 20px;
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #111;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    .feature-item h3 {
+      color: #d32f2f;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .feature-item p {
       font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
     }
 
-    .value-section {
-      padding: 40px 20px;
-      text-align: center;
-      background: #f5f5f5;
-    }
-
-    .value-section h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .value-section p {
-      font-size: 1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .showcase {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 20px;
-    }
-
-    .showcase img {
-      width: 300px;
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .footer-links a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .value-section h2 {
-        font-size: 1.5rem;
-      }
-
-      .cta-button {
-        width: 100%;
+      .features {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+  <!-- Header with Logo and Navigation -->
   <header>
-    <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
-    <h1>BrandFit</h1>
+    <div class="nav-container">
+      <img src="brandfitlogo.png" alt="BrandFit Logo" class="logo" />
+      <div class="brand-name">BrandFit</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Shop</a>
+            <ul class="dropdown-content">
+              <li><a href="men.html">Men</a></li>
+              <li><a href="women.html">Women</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">About</a>
+            <ul class="dropdown-content">
+              <li><a href="about us.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a href="calculatorfront.html">Plan Your Outfit</a></li>
+          <li><a href="brandmascot.html">Brand Mascot</a></li>
+          <li><a href="socialnews.html">Community</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Level Up Your Style</h1>
-    <p>Streetwear. Athletic. Elevated. Join the movement.</p>
+    <h1>Elevate Your Style with BrandFit</h1>
+    <p>Discover exclusive streetwear and athletic apparel from the biggest brands — Nike, Adidas, Tommy Hilfiger, Puma, and more. Your style, your identity.</p>
     <a href="shop.html" class="cta-button">Shop Now</a>
   </section>
 
-  <!-- Value Proposition -->
-  <section class="value-section">
-    <h2>What Makes BrandFit Different?</h2>
-    <p>BrandFit is your one-stop hub for premium athletic and lifestyle fashion. We bring together top-tier brands like Nike, Adidas, Puma, and Tommy Hilfiger—curated for bold expression and confident movement. Be seen. Be fit. Be you.</p>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature-item">
+      <img src="fast-shipping.svg" alt="Fast Shipping Icon" />
+      <h3>Fast & Reliable Shipping</h3>
+      <p>Get your orders delivered swiftly with our trusted logistics partners.</p>
+    </div>
+    <div class="feature-item">
+      <img src="quality-products.svg" alt="Quality Products Icon" />
+      <h3>Top-Quality Products</h3>
+      <p>Only authentic and high-quality apparel from leading brands.</p>
+    </div>
+    <div class="feature-item">
+      <img src="customer-support.svg" alt="Customer Support Icon" />
+      <h3>24/7 Customer Support</h3>
+      <p>Our team is always ready to help you with any questions or concerns.</p>
+    </div>
   </section>
 
-  <!-- Visual Showcase -->
-  <section class="showcase">
-    <img src="619958_v3.jpg" alt="Urban streetwear" />
-    <img src="SS25_Adidas_Orginals_ON.jpg" alt="Adidas Originals" />
-    <img src="brand_fitbot.jpg" alt="Brand Mascot Fitbot" />
-  </section>
+  <!-- Slideshow Section -->
+  <div class="slideshow-container" aria-label="Featured products slideshow">
+    <img class="slide active" src="619958_v3.jpg" alt="Featured Nike Sneakers" />
+    <img class="slide" src="SS25_Adidas_Orginals_ON.jpg" alt="Adidas Originals Sneakers" />
+    <button class="prev" onclick="changeSlide(-1)" aria-label="Previous slide">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)" aria-label="Next slide">&#10095;</button>
+  </div>
 
-  <!-- Footer -->
+  <!-- Image Section -->
+  <div class="image-container">
+    <img src="welcome-banner.png" alt="BrandFit Fashion Showcase" />
+  </div>
+
+  <!-- Footer Section -->
   <footer>
     <div class="footer-links">
-      <a href="#">Privacy</a> |
-      <a href="#">Terms</a> |
-      <a href="#">Support</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Customer Support</a>
     </div>
-    <p>&copy; 2025 BrandFit. All rights reserved.</p>
+    <div class="copyright">
+      &copy; 2025 BrandFit. All rights reserved.
+    </div>
   </footer>
 
+  <!-- JavaScript for Slideshow and Cursor -->
+  <script>
+    const cursor = document.querySelector(".custom-cursor");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-grow");
+      });
+      link.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-grow");
+      });
+    });
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+    }
+
+    function changeSlide(n) {
+      slideIndex += n;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      showSlides();
+    }
+
+    function autoSlide() {
+      changeSlide(1);
+      setTimeout(autoSlide, 4000);
+    }
+
+    autoSlide();
+  </script>
 </body>
 </html>
-
