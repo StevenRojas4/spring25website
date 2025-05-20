@@ -8,12 +8,30 @@ body {
     padding: 0;
     background: linear-gradient(135deg, #ffffff, #fbe9e7);
     color: #333;
-    cursor: none;
+    cursor: default;
     line-height: 1.7;
     transition: background 0.5s ease-in-out;
 }
 
-/* Custom Cursor Styling */
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+.text-center {
+    text-align: center;
+}
+.full-width {
+    width: 100%;
+}
+.flex {
+    display: flex;
+}
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Custom Cursor (if used) */
 .custom-cursor {
     position: fixed;
     width: 18px;
@@ -25,7 +43,6 @@ body {
     z-index: 9999;
     transition: transform 0.2s ease, background 0.2s ease;
 }
-
 .cursor-grow {
     transform: scale(2);
     background: rgba(211, 47, 47, 0.9);
@@ -74,6 +91,8 @@ nav {
     display: flex;
     gap: 25px;
     padding: 0;
+    margin: 0;
+    position: relative;
 }
 
 .nav-menu a {
@@ -91,15 +110,20 @@ nav {
 }
 
 /* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
+    left: 0;
     background: #b71c1c;
     padding: 12px 0;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     min-width: 160px;
+    z-index: 1000;
 }
 
 .dropdown:hover .dropdown-content {
@@ -108,10 +132,14 @@ nav {
 
 .dropdown-content li {
     padding: 10px 20px;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
 }
 
 .dropdown-content li a {
     color: #fff;
+    display: block;
     transition: color 0.3s ease;
 }
 
@@ -221,6 +249,14 @@ footer {
 .slide {
     display: none;
     width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+    background-color: #f8f8f8;
+    border-radius: 12px;
 }
 
 .active {
@@ -335,12 +371,4 @@ footer {
         flex-direction: column;
         gap: 8px;
     }
-}
-
-slide img {
-  width: 100%;
-  height: 600px; /* Increased from 450px to 600px */
-  object-fit: contain; /* Show full image without cropping */
-  background-color: #f8f8f8; /* Optional: background fill for padding space */
-  border-radius: 12px;
 }
