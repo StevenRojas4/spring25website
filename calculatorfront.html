@@ -6,35 +6,107 @@
   <title>Product Calculator - BrandFit</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* RISEN Framework Principles */
+    :root {
+      --primary: #222;
+      --secondary: #555;
+      --accent: #e63946;
+      --bg: #f9f9f9;
+      --font: 'Segoe UI', sans-serif;
+      --radius: 12px;
+      --transition: all 0.3s ease-in-out;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background-color: var(--bg);
+      transition: var(--transition);
+    }
+
     .calculator-container {
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: var(--bg);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: var(--transition);
     }
-    .calculator-row {
+
+    .calculator-row, .calculator-header {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-bottom: 15px;
+      transition: var(--transition);
     }
+
     .calculator-row input {
-      width: 70px;
+      width: 30%;
+      padding: 5px;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      transition: var(--transition);
     }
+
     .calculator-header {
       font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
       border-bottom: 2px solid #ccc;
       padding-bottom: 5px;
     }
+
     .total-container {
       text-align: right;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: bold;
       margin-top: 20px;
+      color: var(--accent);
+      transition: var(--transition);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .calculator-row, .calculator-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .calculator-row input {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }
+
+    /* Animations */
+    h2 {
+      animation: fadeInDown 0.6s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .custom-cursor {
+      width: 15px;
+      height: 15px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      transition: width 0.2s ease, height 0.2s ease;
+    }
+
+    .cursor-grow {
+      width: 30px !important;
+      height: 30px !important;
     }
   </style>
 </head>
